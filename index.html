@@ -9,141 +9,87 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700&family=Barlow:wght@400&display=swap">
 <style>
-:root{--navy:#0F2340;--navy-2:#14305a;--navy-3:#091729;--ice:#cfdcf0;--mut:#a9bad3;--or:#FF7A1A;--line:rgba(255,255,255,.14);
---f-t:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--f-b:Barlow,system-ui,sans-serif}
+:root{--navy:#0F2340;--ink:#091729;--mut:#b4c3da;--or:#FF7A1A;--line:rgba(255,255,255,.18);--u:24px;
+--t:"Barlow Condensed","Arial Narrow",sans-serif;--b:Barlow,system-ui,sans-serif}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--navy);color:#fff;font:400 1.1rem/1.5 var(--f-b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--navy);color:#fff;font:400 1.0625rem/1.55 var(--b);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:inherit}
 :focus-visible{outline:3px solid var(--or);outline-offset:3px}
-.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
-h1,h2{font-family:var(--f-t);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.98;letter-spacing:.01em}
-h1{font-size:clamp(3rem,13vw,5.8rem)}
-h2{font-size:clamp(2.2rem,9vw,3.4rem)}
-.eyebrow{font:700 .95rem/1 var(--f-t);font-style:italic;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:.8rem}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 1.6rem;background:var(--or);color:var(--navy-3);font:800 1.35rem/1 var(--f-t);font-style:italic;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;border-radius:4px;transform:skewX(-8deg);transition:background .15s}
-.btn>span{display:block;transform:skewX(8deg)}
-.btn:hover{background:#ff9140}
-header.top{padding:18px 0;background:var(--navy)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between}
-.logo{height:38px;width:auto}
-.hero{padding:16px 0 64px;background:radial-gradient(ellipse at 80% 20%,rgba(255,122,26,.18),transparent 55%),linear-gradient(180deg,var(--navy),var(--navy-3))}
-.hero .wrap{display:grid;gap:40px}
-.hero h1 em{font-style:inherit;color:var(--or)}
-.hero p.lead{margin:1rem 0 1.6rem;color:var(--ice);font-size:1.25rem}
-.hero .meta{margin-top:1.2rem;color:var(--mut);font-size:.95rem}
-.phone{position:relative;width:min(270px,72vw);background:#050b14;border-radius:34px;padding:9px;box-shadow:0 0 0 2px #2b3f5f,0 24px 50px rgba(0,0,0,.55);margin-inline:auto}
-.phone::before{content:"";position:absolute;top:15px;left:50%;width:56px;height:6px;margin-left:-28px;background:#16233a;border-radius:6px;z-index:2}
-.phone img{width:100%;height:auto;border-radius:26px;background:var(--navy)}
-.phone.tilt{transform:rotate(3deg)}
-section.feat{padding:56px 0}
-section.feat:nth-of-type(even){background:var(--navy-3)}
-.feat .wrap{display:grid;gap:28px;align-items:center;justify-items:center;text-align:center}
-.feat h2{margin-bottom:.8rem}
-.feat ul{list-style:none;padding:0;color:var(--ice);display:grid;gap:.2rem}
-.nums{background:var(--navy-3);padding:64px 0}
-.nums .grid{display:grid;gap:26px 14px;grid-template-columns:1fr 1fr}
-.num{border-top:4px solid var(--or);padding-top:14px}
-.num b{display:block;font:800 clamp(2.8rem,11vw,4.4rem)/1 var(--f-t);font-style:italic}
+.wrap{width:min(1120px,100% - 2*var(--u));margin-inline:auto}
+h1,h2,h3{font-family:var(--t);font-style:italic;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 36px;background:var(--or);color:var(--ink);font:700 1.3rem/1 var(--t);font-style:italic;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.btn:hover{background:#fff}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:center;padding:20px 0}
+.logo{height:40px;width:auto}
+.hero{padding:72px 0;text-align:center;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(2.8rem,11vw,5.5rem);margin-bottom:20px}
+.hero p{color:var(--mut);margin-bottom:32px}
+.hero .meta{margin:16px 0 0;font-size:.95rem}
+.grid{display:grid;grid-template-columns:1fr;gap:72px var(--u);padding:72px 0;justify-items:center}
+.card{width:100%;max-width:280px;text-align:center}
+.phone{width:100%;aspect-ratio:390/820;background:#050b14;border:2px solid #34496b;border-radius:30px;padding:8px;margin-bottom:24px}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:22px}
+.card h3{font-size:1.9rem;margin-bottom:10px}
+.card p{color:var(--mut)}
+.hero .phone{max-width:280px;margin:48px auto 0}
+.nums{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums .wrap{display:grid;grid-template-columns:1fr 1fr}
+.num{padding:40px 12px;text-align:center;border-bottom:1px solid var(--line)}
+.num:nth-child(odd){border-right:1px solid var(--line)}
+.num:nth-last-child(-n+2){border-bottom:0}
+.num b{display:block;font:700 clamp(2.6rem,10vw,3.8rem)/1 var(--t);font-style:italic}
 .num span{color:var(--mut);font-size:.95rem}
-.final{padding:72px 0;text-align:center;background:var(--or);color:var(--navy-3)}
-.final h2{margin-bottom:1.6rem}
-.final .btn{background:var(--navy-3);color:#fff}
-.final .btn:hover{background:var(--navy)}
-footer{padding:36px 0 44px;background:var(--navy-3);color:var(--mut);font-size:.95rem}
-footer .wrap{display:grid;gap:6px;justify-items:center;text-align:center}
-footer strong{color:#fff}
-@media(min-width:760px){
- .hero .wrap{grid-template-columns:1.2fr .8fr;align-items:center}
- .phone{width:290px}
- section.feat{padding:84px 0}
- .feat .wrap{grid-template-columns:1fr 1fr;gap:64px;text-align:left;justify-items:stretch}
- .feat .wrap .phone{margin-inline:auto}
- .feat.rev .phone{order:-1}
- .nums .grid{grid-template-columns:repeat(4,1fr)}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.final{padding:80px 0;text-align:center}
+.final h2{font-size:clamp(2.2rem,8vw,3.4rem);margin-bottom:32px}
+footer{border-top:1px solid var(--line);padding:32px 0 40px;text-align:center;color:var(--mut);font-size:.95rem}
+footer strong{display:block;color:#fff;font:700 1.3rem/1 var(--t);font-style:italic;letter-spacing:.06em;margin-bottom:8px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}.nums .wrap{grid-template-columns:repeat(4,1fr)}.num{border-bottom:0!important;border-right:1px solid var(--line)}.num:last-child{border-right:0}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
+<header><div class="wrap">
 <svg class="logo" viewBox="0 0 226 80" role="img" aria-label="ANVIL360" style="overflow:visible"><g transform="translate(4 8) skewX(-8) translate(10 0) scale(0.165) translate(-109 -226)"><polygon fill="#fff" points="109,383 221,337 519,337 519,402 408,402 388,449 388,551 454,579 454,635 174,635 174,579 239,551 239,449 267,402 193,402"/><path fill="#FF7A1A" d="M454 226 L460 261 L495 267 L460 273 L454 308 L448 273 L413 267 L448 261Z M370 255 L372.5 268.5 L386 271 L372.5 273.5 L370 287 L367.5 273.5 L354 271 L367.5 268.5Z"/></g><text x="80" y="52" fill="#fff" font-family="'Barlow Condensed',sans-serif" font-style="italic" font-weight="800" font-size="54" letter-spacing="1">ANVIL</text><line x1="82" y1="66" x2="166" y2="66" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="222" y="76" text-anchor="end" fill="#fff" font-family="'Barlow Condensed',sans-serif" font-style="italic" font-weight="800" font-size="27">360°</text></svg>
-<a class="btn" href="#descargar" style="min-height:42px;font-size:1.1rem;padding:0 1.1rem"><span>Descargar</span></a>
 </div></header>
 
 <main>
-<div class="hero"><div class="wrap">
- <div>
-  <p class="eyebrow">Arranque y envión</p>
-  <h1>Tu torneo de pesas, <em>sin planillas</em></h1>
-  <p class="lead">Torneos, prácticas y juntadas de levantamiento olímpico.</p>
-  <a class="btn" href="#descargar"><span>Descargar APK</span></a>
-  <p class="meta">Android · 1,1 MB</p>
- </div>
- <div class="phone tilt"><img src="img/competencia.webp" width="390" height="844" alt="Pantalla de competencia de ANVIL360 con el atleta en turno y las banderas del juez"></div>
-</div></div>
-
-<section class="feat"><div class="wrap">
- <div><h2>Tus eventos</h2><ul><li>Torneos, prácticas y juntadas.</li><li>Todo guardado en el celu.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/home.webp" width="390" height="844" alt="Lista de eventos"></div>
+<section class="hero"><div class="wrap">
+ <h1>Tu torneo de pesas,<br>sin planillas</h1>
+ <p>Torneos, prácticas y juntadas de levantamiento olímpico.</p>
+ <a class="btn" href="#descargar">Descargar APK</a>
+ <p class="meta">Android · 1,1 MB</p>
 </div></section>
 
-<section class="feat rev"><div class="wrap">
- <div><h2>Inscripción de atletas</h2><ul><li>Peso corporal y club.</li><li>Categoría IWF automática.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/preparacion.webp" width="390" height="844" alt="Inscripción de participantes con categoría IWF"></div>
-</div></section>
-
-<section class="feat"><div class="wrap">
- <div><h2>Un juez, dos banderas</h2><ul><li>Blanca o roja, en 2D, 3D o luces.</li><li>Orden de salida por barra ascendente.</li><li>Discos en la barra y cronómetro por intento.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/competencia.webp" width="390" height="844" alt="Juez con banderas blanca y roja"></div>
-</div></section>
-
-<section class="feat rev"><div class="wrap">
- <div><h2>Grilla de intentos</h2><ul><li>Blanco válido, rojo nulo.</li><li>Tocá un intento para corregirlo.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/grilla.webp" width="390" height="844" alt="Grilla de intentos de arranque y envión"></div>
-</div></section>
-
-<section class="feat"><div class="wrap">
- <div><h2>Video de cada intento</h2><ul><li>Con atleta, peso y decisión.</li><li>Filtrá por atleta, válidos o nulos.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/videos.webp" width="390" height="797" alt="Galería de videos de intentos"></div>
-</div></section>
-
-<section class="feat rev"><div class="wrap">
- <div><h2>Resultados y ranking</h2><ul><li>Por categoría y por club.</li><li>Exportá a CSV.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/resultados.webp" width="390" height="844" alt="Resultados por categoría y ranking de clubes"></div>
-</div></section>
-
-<section class="feat"><div class="wrap">
- <div><h2>Reglamento IWF</h2><ul><li>El índice a un toque.</li><li>Sin salir de la app.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/reglamento.webp" width="390" height="797" alt="Índice del reglamento IWF"></div>
-</div></section>
-
-<section class="feat rev"><div class="wrap">
- <div><h2>Sync con tu PC</h2><ul><li>Por WiFi, escaneando un QR.</li><li>App de escritorio.</li></ul></div>
- <div class="phone"><img loading="lazy" src="img/sync.webp" width="390" height="797" alt="Pantalla de sincronizar con PC mediante QR"></div>
+<section><div class="wrap grid">
+  <article class="card"><div class="phone"><img loading="lazy" src="img/home.webp" width="390" height="820" alt="Lista de eventos"></div><h3>Tus eventos</h3><p>Torneos, prácticas y juntadas.<br>Todo guardado en el celu.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/preparacion.webp" width="390" height="820" alt="Inscripción de participantes con categoría IWF"></div><h3>Inscripción de atletas</h3><p>Peso corporal y club.<br>Categoría IWF automática.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/competencia.webp" width="390" height="820" alt="Juez con banderas blanca y roja"></div><h3>Un juez, dos banderas</h3><p>Blanca o roja, en 2D, 3D o luces.<br>Orden de salida por barra ascendente.<br>Discos en la barra y cronómetro.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/grilla.webp" width="390" height="820" alt="Grilla de intentos de arranque y envión"></div><h3>Grilla de intentos</h3><p>Blanco válido, rojo nulo.<br>Tocá un intento para corregirlo.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/videos.webp" width="390" height="820" alt="Galería de videos de intentos"></div><h3>Video de cada intento</h3><p>Con atleta, peso y decisión.<br>Filtrá por atleta, válidos o nulos.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/resultados.webp" width="390" height="820" alt="Resultados por categoría y ranking de clubes"></div><h3>Resultados y ranking</h3><p>Por categoría y por club.<br>Exportá a CSV.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/reglamento.webp" width="390" height="820" alt="Índice del reglamento IWF"></div><h3>Reglamento IWF</h3><p>El índice a un toque.<br>Sin salir de la app.</p></article>
+  <article class="card"><div class="phone"><img loading="lazy" src="img/sync.webp" width="390" height="820" alt="Sincronizar con PC mediante QR"></div><h3>Sync con tu PC</h3><p>Por WiFi, escaneando un QR.<br>App de escritorio.</p></article>
 </div></section>
 
 <section class="nums"><div class="wrap">
- <div class="grid">
-  <div class="num"><b>1,1&nbsp;MB</b><span>el APK completo</span></div>
-  <div class="num"><b>0,6&nbsp;s</b><span>de arranque en gama media</span></div>
-  <div class="num"><b>IWF</b><span>categorías y reglamento</span></div>
-  <div class="num"><b>1</b><span>solo juez alcanza</span></div>
- </div>
+ <div class="num"><b>1,1&nbsp;MB</b><span>el APK completo</span></div>
+ <div class="num"><b>0,6&nbsp;s</b><span>de arranque en gama media</span></div>
+ <div class="num"><b>IWF</b><span>categorías y reglamento</span></div>
+ <div class="num"><b>1</b><span>solo juez alcanza</span></div>
 </div></section>
 
 <section class="final" id="descargar"><div class="wrap">
  <h2>Armá tu próximo torneo</h2>
- <a class="btn" href="#descargar"><span>Descargar APK · 1,1 MB</span></a>
+ <a class="btn" href="#descargar">Descargar APK · 1,1 MB</a>
 </div></section>
 </main>
 
 <footer><div class="wrap">
  <strong>ANVIL360</strong>
- <span>San Martín de los Andes, Argentina</span>
+ San Martín de los Andes, Argentina
 </div></footer>
 </body>
 </html>
