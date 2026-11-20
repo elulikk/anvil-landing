@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ANVIL360: la app para organizar torneos, prácticas y juntadas de levantamiento olímpico. Inscripción, orden de salida, juez con banderas, video de cada intento y ranking. APK de 1,1 MB.">
+<meta name="theme-color" content="#0F2340">
+<title>ANVIL360 · Torneos de levantamiento olímpico</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{--navy:#0F2340;--navy-2:#14305a;--navy-3:#091729;--white:#fff;--ice:#cfdcf0;--mut:#a9bad3;--or:#FF7A1A;--line:rgba(255,255,255,.14);
+--f-t:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--f-b:Barlow,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font:400 1.0625rem/1.6 var(--f-b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-t);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.98;letter-spacing:.01em}
+h1{font-size:clamp(3rem,13vw,5.8rem)}
+h2{font-size:clamp(2.2rem,8vw,3.6rem)}
+h3{font-size:1.7rem}
+.eyebrow{font:700 .95rem/1 var(--f-t);font-style:italic;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:.9rem}
+.lead{color:var(--ice);font-size:1.15rem;max-width:34rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;min-height:52px;padding:0 1.6rem;background:var(--or);color:var(--navy-3);font:800 1.35rem/1 var(--f-t);font-style:italic;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;border-radius:4px;transform:skewX(-8deg);transition:background .15s}
+.btn>span{display:block;transform:skewX(8deg)}
+.btn:hover{background:#ff9140}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+header.top{padding:18px 0;background:var(--navy)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{height:38px;width:auto}
+.hero{padding:16px 0 64px;background:radial-gradient(ellipse at 80% 20%,rgba(255,122,26,.18),transparent 55%),linear-gradient(180deg,var(--navy),var(--navy-3))}
+.hero .wrap{display:grid;gap:40px}
+.hero h1 em{font-style:inherit;color:var(--or)}
+.hero p.lead{margin:1.2rem 0 1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero .meta{margin-top:1.6rem;color:var(--mut);font-size:.95rem}
+.phone{position:relative;width:min(260px,70vw);aspect-ratio:390/844;background:#050b14;border-radius:34px;padding:9px;box-shadow:0 0 0 2px #2b3f5f,0 24px 50px rgba(0,0,0,.55);margin-inline:auto}
+.phone::before{content:"";position:absolute;top:15px;left:50%;width:56px;height:6px;margin-left:-28px;background:#16233a;border-radius:6px;z-index:2}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:26px;background:var(--navy)}
+.phone.tilt{transform:rotate(3deg)}
+section{padding:72px 0}
+.alt{background:var(--navy-3)}
+.sec-h{margin-bottom:2.2rem}
+.sec-h .lead{margin-top:1rem}
+.steps{display:grid;gap:56px;list-style:none;padding:0}
+.step{display:grid;gap:22px;justify-items:center;text-align:center}
+.step .n{display:block;font:800 4.5rem/.8 var(--f-t);font-style:italic;color:var(--or);margin-bottom:.4rem}
+.step p{color:var(--ice);max-width:22rem;margin:.6rem auto 0}
+.feat{display:grid;gap:32px;align-items:center;margin-bottom:72px}
+.feat p{color:var(--ice);margin-top:1rem;max-width:32rem}
+.ticks{list-style:none;padding:0;margin-top:1.1rem;display:grid;gap:.5rem}
+.ticks li{padding-left:1.7rem;position:relative;color:var(--ice)}
+.ticks li::before{content:"";position:absolute;left:0;top:.5em;width:.9rem;height:.9rem;background:var(--or);clip-path:polygon(0 0,100% 0,70% 100%,0 100%)}
+.cards{display:grid;gap:16px;grid-template-columns:1fr}
+.card{background:var(--navy-2);border:1px solid var(--line);border-radius:6px;padding:22px}
+.card h3{font-size:1.5rem;margin-bottom:.4rem}
+.card p{color:var(--ice);font-size:1rem}
+.flags{display:flex;gap:10px;margin-top:1.2rem}
+.flag{width:46px;height:30px;border-radius:2px;transform:skewX(-8deg)}
+.flag.w{background:#fff}.flag.r{background:#e5383b}
+.nums{display:grid;gap:22px 14px;grid-template-columns:1fr 1fr}
+.num{border-top:4px solid var(--or);padding-top:14px}
+.num b{display:block;font:800 clamp(2.6rem,10vw,4.2rem)/1 var(--f-t);font-style:italic}
+.num span{color:var(--mut);font-size:.95rem}
+.final{text-align:center;background:var(--or);color:var(--navy-3)}
+.final .eyebrow{color:var(--navy)}
+.final p.s{max-width:30rem;margin:1rem auto 1.8rem;font-weight:500}
+.final .btn{background:var(--navy-3);color:#fff}
+.final .btn:hover{background:var(--navy)}
+footer{padding:36px 0 44px;background:var(--navy-3);color:var(--mut);font-size:.95rem}
+footer .wrap{display:grid;gap:8px;justify-items:center;text-align:center}
+footer strong{color:#fff}
+@media(min-width:760px){
+ .hero .wrap{grid-template-columns:1.2fr .8fr;align-items:center}
+ .phone{width:280px}
+ .steps{grid-template-columns:repeat(3,1fr)}
+ .feat{grid-template-columns:1fr 1fr;gap:64px}
+ .feat.rev .phone{order:-1}
+ .cards{grid-template-columns:repeat(3,1fr)}
+ .nums{grid-template-columns:repeat(4,1fr)}
+ section{padding:96px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<svg class="logo" viewBox="0 0 226 80" role="img" aria-label="ANVIL360" style="overflow:visible"><g transform="translate(4 8) skewX(-8) translate(10 0) scale(0.165) translate(-109 -226)"><polygon fill="#fff" points="109,383 221,337 519,337 519,402 408,402 388,449 388,551 454,579 454,635 174,635 174,579 239,551 239,449 267,402 193,402"/><path fill="#FF7A1A" d="M454 226 L460 261 L495 267 L460 273 L454 308 L448 273 L413 267 L448 261Z M370 255 L372.5 268.5 L386 271 L372.5 273.5 L370 287 L367.5 273.5 L354 271 L367.5 268.5Z"/></g><text x="80" y="52" fill="#fff" font-family="'Barlow Condensed',sans-serif" font-style="italic" font-weight="800" font-size="54" letter-spacing="1">ANVIL</text><line x1="82" y1="66" x2="166" y2="66" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="222" y="76" text-anchor="end" fill="#fff" font-family="'Barlow Condensed',sans-serif" font-style="italic" font-weight="800" font-size="27">360°</text></svg>
+<a class="btn" href="#descargar" style="min-height:42px;font-size:1.1rem;padding:0 1.1rem"><span>Descargar</span></a>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+ <div>
+  <p class="eyebrow">Arranque y envión</p>
+  <h1>Tu torneo de pesas, <em>sin planillas</em></h1>
+  <p class="lead">Inscribí atletas, armá el orden de salida, juzgá con banderas y grabá cada intento. Todo desde el celular, para torneos, prácticas y juntadas de levantamiento olímpico.</p>
+  <div class="cta"><a class="btn" href="#descargar"><span>Descargar APK</span></a><a class="btn ghost" href="#como"><span>Cómo funciona</span></a></div>
+  <p class="meta">Android · APK de 1,1 MB · Sin cuenta, sin internet</p>
+ </div>
+ <div class="phone tilt"><img src="img/competencia.webp" width="390" height="844" alt="Pantalla de competencia de ANVIL360: atleta en turno, banderas blanca y roja, botón START"></div>
+</div></div>
+
+<section id="como"><div class="wrap">
+ <div class="sec-h"><p class="eyebrow">Cómo funciona</p><h2>Tres pasos y a levantar</h2></div>
+ <ol class="steps">
+  <li class="step"><div class="phone"><img loading="lazy" src="img/preparacion.webp" width="390" height="844" alt="Lista de participantes con peso corporal y categoría IWF"></div><div><span class="n">1</span><h3>Cargá participantes</h3><p>Nombre, peso corporal y club. La categoría IWF se asigna sola y el orden de salida se arma por barra ascendente.</p></div></li>
+  <li class="step"><div class="phone"><img loading="lazy" src="img/competencia.webp" width="390" height="844" alt="Pantalla de competencia con el atleta en turno"></div><div><span class="n">2</span><h3>Tocá Comenzar</h3><p>La app te dice quién sigue y con cuánto abre. Dibuja los discos de la barra y suma un cronómetro por intento.</p></div></li>
+  <li class="step"><div class="phone"><img loading="lazy" src="img/grilla.webp" width="390" height="844" alt="Grilla de intentos con válidos en blanco y nulos en rojo"></div><div><span class="n">3</span><h3>Juzgá con banderas</h3><p>Un solo juez toca blanca o roja. La grilla se completa y el ranking se calcula solo.</p></div></li>
+ </ol>
+</div></section>
+
+<section class="alt"><div class="wrap">
+ <div class="sec-h"><p class="eyebrow">Qué trae</p><h2>Hecha para la plataforma</h2></div>
+
+ <div class="feat">
+  <div>
+   <h3>Un juez, dos banderas</h3>
+   <p>Blanca para válido, roja para nulo. Elegí cómo verlas: en 2D, en 3D o con luces.</p>
+   <div class="flags" aria-hidden="true"><span class="flag w"></span><span class="flag r"></span></div>
+   <ul class="ticks"><li>Dibujo de los discos en la barra para cada carga</li><li>Cronómetro por intento</li></ul>
+  </div>
+  <div class="phone"><img loading="lazy" src="img/competencia.webp" width="390" height="844" alt="Juez con banderas blanca y roja"></div>
+ </div>
+
+ <div class="feat rev">
+  <div>
+   <h3>Grilla y ranking al instante</h3>
+   <p>Cada intento queda en la grilla: blanco válido, rojo nulo. Al terminar, resultados por categoría con arranque, envión y total, más el puntaje por club.</p>
+   <ul class="ticks"><li>Categorías IWF por sexo y peso corporal</li><li>Exportá los resultados a CSV</li><li>Reglamento IWF integrado en la app</li></ul>
+  </div>
+  <div class="phone"><img loading="lazy" src="img/resultados.webp" width="390" height="844" alt="Resultados por categoría y ranking de clubes"></div>
+ </div>
+
+ <div class="cards">
+  <div class="card"><h3>Video de cada intento</h3><p>Grabá cada levantada con overlay de atleta, peso y decisión del juez, y revisala después en la lista de videos.</p></div>
+  <div class="card"><h3>Sync a la PC</h3><p>Pasá todo del celular a la app de escritorio por WiFi escaneando un QR.</p></div>
+  <div class="card"><h3>Inscripción de atletas</h3><p>Cargá a tu gente con categorías IWF y reutilizala en cada torneo, práctica o juntada.</p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="feat" style="margin-bottom:0">
+  <div>
+   <p class="eyebrow">Easter egg</p>
+   <h3>El taller de discos 3D</h3>
+   <p>Escondido en la app hay un taller con discos y barra en 3D: girá, hacé zoom, cargá hasta 1000 kg y… ¡revoleá! Encontralo.</p>
+  </div>
+  <div class="phone"><img loading="lazy" src="img/taller.webp" width="390" height="844" alt="Barra con discos rojos de 25 kg en 3D, taller de discos de ANVIL360"></div>
+ </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+ <div class="sec-h"><p class="eyebrow">Liviana y rápida</p><h2>Liviana de verdad</h2><p class="lead">Se instala en segundos y abre en una pestañeada, incluso en un celu de gama media.</p></div>
+ <div class="nums">
+  <div class="num"><b>1,1&nbsp;MB</b><span>el APK completo</span></div>
+  <div class="num"><b>0,6&nbsp;s</b><span>de arranque en gama media</span></div>
+  <div class="num"><b>IWF</b><span>categorías y reglamento</span></div>
+  <div class="num"><b>1</b><span>solo juez alcanza</span></div>
+ </div>
+</div></section>
+
+<section class="final" id="descargar"><div class="wrap">
+ <p class="eyebrow">Descargá ANVIL360</p>
+ <h2>Armá tu próximo torneo</h2>
+ <p class="s">Para Android. La descarga del APK se habilita muy pronto.</p>
+ <a class="btn" href="#descargar"><span>Descargar APK · 1,1 MB</span></a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <strong>ANVIL360</strong>
+ <span>Torneos, prácticas y juntadas de levantamiento olímpico.</span>
+ <span>San Martín de los Andes, Argentina</span>
+</div></footer>
+</body>
+</html>
